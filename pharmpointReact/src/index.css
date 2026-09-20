@@ -1,0 +1,489 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: white;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.wrapper {
+    width: 1280px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+/* ===== HEADER ===== */
+header .logo {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+header ul.nav {
+    float: right;
+    list-style: none;
+}
+
+header ul.nav li {
+    display: inline;
+    margin-left: 25px;
+    cursor: pointer;
+    transition: opacity 500ms ease;
+}
+
+header ul.nav li:hover {
+    opacity: 0.5;
+}
+
+header .cart-button {
+    float: right;
+    cursor: pointer;
+    transition: color, transform 500ms ease;
+}
+
+header .cart-button:hover,
+header .cart-button.active {
+    color: orange;
+    transform: scale(1.5);
+}
+
+header {
+    position: relative;
+}
+
+header .cart {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 450px;
+    background: #f5f5f5;
+    -webkit-box-shadow: 4px 5px 15px -7px #606060;
+    box-shadow: 4px 5px 15px -7px #606060;
+    z-index: 1000;
+    padding: 20px;
+    padding-bottom: 0;
+    border-radius: 20px;
+}
+
+header .cart .medicine {
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+}
+
+header .cart .medicine img {
+    width: 70px;
+    float: left;
+    margin-right: 20px;
+}
+
+header .cart .medicine h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+header .cart .medicine b {
+    color: #797979;
+    font-weight: 600;
+}
+
+header .cart .empty h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+header .cart .medicine .delete-icon {
+    color: #ca5252;
+    float: right;
+    position: relative;
+    top: -25px;
+    cursor: pointer;
+    transition: color, transform 500ms ease;
+}
+
+header .cart .medicine .delete-icon:hover {
+    color: #d83030;
+    transform: scale(1.5);
+}
+
+header .cart .total {
+    float: left;
+    width: 100%;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* ===== PRESENTATION ===== */
+header .presentation {
+    margin: 50px 0;
+    background: url('./img/Home.png') no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-blend-mode: multiply;
+    background-color: #bcbcbc;
+    width: 100%;
+    height: 500px;
+    position: relative;
+}
+
+header .presentation::after {
+    content: 'Нужные медикаменты здесь';
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 300px;
+    font-size: 40px;
+    font-weight: 600;
+    color: white;
+}
+
+/* ===== MAIN ===== */
+main {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+main .medicine {
+    width: 30%;
+    margin-bottom: 50px;
+    background: #f5f5f5;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 20px;
+    border-radius: 10px;
+}
+
+main .medicine img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    transition: transform 500ms ease;
+    cursor: pointer;
+}
+
+.medicine-info img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+main .medicine img:hover {
+    transform: scale(1.05);
+}
+
+main h2,
+main p,
+main b,
+.medicine-info h2,
+.medicine-info p,
+.medicine-info b {
+    margin: 10px 20px;
+    color: #333;
+}
+
+main b,
+.medicine-info b {
+    color: #5fa36a;
+    font-weight: 600;
+}
+
+.medicine-info .close-info {
+    position: absolute;
+    right: -38px;
+    top: -25px;
+    background: red;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.medicine-info .close-info:hover {
+    background: rgb(192, 0, 0);
+}
+
+main .add-to-cart,
+.medicine-info .add-to-cart {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    background: orange;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 500ms ease;
+}
+
+main .add-to-cart:hover,
+.medicine-info .add-to-cart:hover {
+    transform: scale(1.5);
+}
+
+/* ===== SPECIES FILTER ===== */
+.types div {
+    display: inline-block;
+    background: #f2f2f2;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin-bottom: 25px;
+    margin-right: 15px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 500ms ease;
+}
+
+.types div:hover {
+    border-color: silver;
+    transform: scale(1.1);
+}
+
+/* ===== MEDICINE INFO ===== */
+.medicine-info {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    overflow: auto;
+    padding: 20px;
+}
+
+.medicine-info > div {
+    width: 600px;
+    position: relative;
+    margin: 10% auto;
+    padding: 40px 30px;
+    background: white;
+    border-radius: 10px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    margin-top: 100px;
+}
+
+
+/* ===== АДАПТИВНОСТЬ ===== */
+
+/* ===== Большие экраны (от 1920px) ===== */
+@media (min-width: 1920px) {
+    .wrapper {
+        width: 1600px;
+    }
+
+    main .medicine {
+        width: 23%;
+    }
+
+    header .presentation {
+        height: 600px;
+    }
+
+    header .presentation::after {
+        font-size: 48px;
+        width: 350px;
+    }
+}
+
+/* --- Ноутбуки (1024px - 1279px) --- */
+@media (max-width: 1279px) {
+    .wrapper {
+        width: 100%;
+        padding: 0 30px;
+    }
+
+    main .medicine {
+        width: 30%;
+    }
+
+    header .presentation {
+        height: 400px;
+    }
+
+    header .presentation::after {
+        font-size: 32px;
+        width: 250px;
+    }
+
+    .medicine-info > div {
+        width: 90%;
+        margin: 5% auto;
+    }
+}
+
+/* --- Планшеты (768px - 1023px) --- */
+@media (max-width: 1023px) {
+    .wrapper {
+        padding: 0 25px;
+    }
+
+    main .medicine {
+        width: 45%;
+    }
+
+    header .presentation {
+        height: 350px;
+    }
+
+    header .presentation::after {
+        font-size: 28px;
+        width: 220px;
+        top: 20px;
+        left: 20px;
+    }
+
+    header .cart {
+        width: 350px;
+        right: 0;
+    }
+
+    header ul.nav li {
+        margin-left: 15px;
+    }
+
+    .medicine-info > div {
+        width: 95%;
+        padding: 30px 20px;
+    }
+
+    .types div {
+        padding: 8px 16px;
+        margin-right: 10px;
+        font-size: 14px;
+    }
+}
+
+/* --- Телефоны (480px - 767px) --- */
+@media (max-width: 767px) {
+    .wrapper {
+        padding: 0 15px;
+        margin: 20px auto;
+    }
+
+    header .logo {
+        font-size: 18px;
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    header ul.nav {
+        float: none;
+        text-align: center;
+        padding: 0;
+        margin-bottom: 15px;
+    }
+
+    header ul.nav li {
+        display: inline-block;
+        margin: 0 10px;
+        font-size: 14px;
+    }
+
+    header .cart-button {
+        float: right;
+        margin-top: -40px;
+    }
+
+    header .cart {
+        width: 100%;
+        right: 0;
+        left: 0;
+        top: 50px;
+        border-radius: 0 0 20px 20px;
+        max-height: 400px;
+        overflow-y: auto;
+    }
+
+    header .cart .medicine {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    header .cart .medicine img {
+        width: 50px;
+        float: none;
+        margin-right: 0;
+    }
+
+    header .cart .medicine h2 {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    header .cart .medicine .delete-icon {
+        top: 0;
+    }
+
+    header .presentation {
+        height: 250px;
+        margin: 20px 0;
+        background-position: center 30%;
+    }
+
+    header .presentation::after {
+        font-size: 20px;
+        width: 160px;
+        top: 15px;
+        left: 15px;
+    }
+
+    main .medicine {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    main h2,
+    main p,
+    main b {
+        margin: 8px 15px;
+        font-size: 16px;
+    }
+
+    .types {
+        text-align: center;
+    }
+
+    .types div {
+        display: inline-block;
+        padding: 6px 14px;
+        margin: 0 5px 10px 5px;
+        font-size: 13px;
+    }
+
+    .medicine-info > div {
+        width: 98%;
+        margin: 2% auto;
+        padding: 20px 15px;
+    }
+
+    .medicine-info h2 {
+        font-size: 20px;
+    }
+
+    footer {
+        margin-top: 50px;
+        font-size: 14px;
+    }
+}
